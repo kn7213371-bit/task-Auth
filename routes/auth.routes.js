@@ -115,7 +115,7 @@ authRouter.post("/register",validateBody(registerSchema),async (req, res) => {
 
    await db.create("auth_users",{
     email:req.body.email,
-    username:req.body.user_name,
+    username:req.body.username,
     password:passwordHash,
    });
 
