@@ -56,7 +56,9 @@ authRouter.post("/login", validateBody(loginSchema),async(req, res) => {
 
   // token 
 
-  const token =await jwt.sign(existingUser , process.env.JWT_SECRET);
+  const token =await jwt.sign({
+        id: existingUser.id
+    }, , process.env.JWT_SECRET);
 
   res.cookie("node_api_token",token,{
     httpOnly: true,
